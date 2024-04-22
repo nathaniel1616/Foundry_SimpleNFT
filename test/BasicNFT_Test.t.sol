@@ -9,8 +9,7 @@ contract BasicNFT_Test is Test {
     DeployBasicNFT deployBasicNFT;
     BasicNFT basicNFT;
     address USER = makeAddr("USER");
-    string Pug_TokenURI =
-        "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
+    string Pug_TokenURI = "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
 
     string constant NFT_NAME = "Dogie";
     string constant NFT_SYMBOL = "Dog";
@@ -33,10 +32,7 @@ contract BasicNFT_Test is Test {
 
         string memory nftName = basicNFT.name();
 
-        assert(
-            keccak256(abi.encodePacked((x))) !=
-                keccak256(abi.encodePacked((nftName)))
-        );
+        assert(keccak256(abi.encodePacked((x))) != keccak256(abi.encodePacked((nftName))));
     }
 
     function test_CanMintAndHaveABalance() public {
@@ -45,9 +41,6 @@ contract BasicNFT_Test is Test {
 
         assertEq(basicNFT.balanceOf(USER), 1);
         assertEq(Pug_TokenURI, basicNFT.tokenURI(0));
-        assert(
-            keccak256(abi.encodePacked(Pug_TokenURI)) ==
-                keccak256(abi.encodePacked(basicNFT.tokenURI(0)))
-        );
+        assert(keccak256(abi.encodePacked(Pug_TokenURI)) == keccak256(abi.encodePacked(basicNFT.tokenURI(0))));
     }
 }
